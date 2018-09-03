@@ -298,6 +298,19 @@ public class TCVMControllerTest {
 		verify(reportService).refillingCounterStatus();
 	}
 	
+	@Test
+	public void shouldThrowRuntimeExceptionInCaseOfOverflowInContainerRefilling(){
+		//TCVMController tcvmController = new TCVMController();
+		//when(inputScanner.nextDouble()).thenReturn(new Double(100));
+		when(inputScanner.nextDouble()).thenReturn(100.0);
+		when(containerServiceImpl.refillContainer(ContainerType.Water, 100.0)).thenReturn(false);
+		
+		when(inputScanner.nextInt()).thenReturn(1);
+		tcvmController.refillContainer(ContainerType.Water);
+		verify(containerServiceImpl).refillContainer(ContainerType.Water, 100.0);
+		
+	}
+	
 	
 	
 

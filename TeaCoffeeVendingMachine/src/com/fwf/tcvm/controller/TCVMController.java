@@ -16,11 +16,10 @@ import com.fwf.tcvm.service.ReportServiceImpl;
 public class TCVMController {
 
 	InputScanner scanner;
-	ItemDespenseService itemDespenseService;// = new ItemDespenseServiceImpl();
-	ContainerServiceImpl containerServiceImpl;// = new ContainerServiceImpl();
+	ItemDespenseService itemDespenseService;
+	ContainerServiceImpl containerServiceImpl;
 	Item item;
 	ReportService reportService;
-	//Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	static Map<String, Integer> mapOfItemAndQuantity = new HashMap<>();
 
 	public TCVMController() {
@@ -166,18 +165,25 @@ public class TCVMController {
 	}
 
 	public void refillContainer(ContainerType containerType) {
-		ContainerService containerService = new ContainerServiceImpl();
+		
 		
 		System.out.println("Please enter refill quantity");
 		Double getRefillAmount = scanner.nextDouble();
 		
-		Boolean refillStatus = containerService.refillContainer(containerType, getRefillAmount);
+		Boolean refillStatus = containerServiceImpl.refillContainer(containerType, getRefillAmount);
+		try{
 		if(refillStatus) {
 			System.out.println("Container Refilled Successfully!");
+			callMenuAgain();
 		} else {
-			System.out.println("Refill unsuccessfull! Please try later!");
+			//System.out.println("Refill unsuccessfull! Please try later!");
+			throw new RuntimeException("Refill unsuccessfull! Please try later!");
+		}}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+			callMenuAgain();
 		}
-		callMenuAgain();
+		
 		/*System.out.println("Please select container to be refilled.");
 		System.out.println(
 				"1. Tea Container\n2. Coffee Container\n3. Sugar Container\n4. Water Container\n5. Milk Container");
