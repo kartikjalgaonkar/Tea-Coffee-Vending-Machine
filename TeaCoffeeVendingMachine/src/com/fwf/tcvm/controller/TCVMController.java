@@ -59,8 +59,11 @@ public class TCVMController {
 		System.out.println("Please select option from the following");
 		String inputChoice = viewMenu();
 		int quantity = 0;
-		if (Integer.parseInt(inputChoice) <= 4 && Integer.parseInt(inputChoice) > 0)
+		int choice = Integer.parseInt(inputChoice); 
+		if ( choice <= 4 && choice > 0)
 			quantity = getDrinksQuantity();
+		else
+			System.out.println("*****************************************");
 
 		switch (inputChoice) { 
 		case "1":

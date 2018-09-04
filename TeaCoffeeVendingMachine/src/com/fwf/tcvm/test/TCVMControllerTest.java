@@ -310,6 +310,14 @@ public class TCVMControllerTest {
 		verify(containerServiceImpl).refillContainer(ContainerType.Water, 100.0);
 		
 	}
+	
+	@Test
+	public void shouldCallDefaultIfNegavtiveNumberIsEntered(){
+		when(inputScanner.getString()).thenReturn("-1");
+		when(inputScanner.nextInt()).thenReturn(5);
+		tcvmController.callOption();
+		verify(inputScanner).getString();
+	}
 
 	
 	
