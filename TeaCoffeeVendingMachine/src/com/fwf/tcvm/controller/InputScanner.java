@@ -10,13 +10,13 @@ public class InputScanner {
 		this.scanner = new Scanner(System.in);
 	}
 	
-/*	public InputScanner(Scanner scanner) {
+	public InputScanner(Scanner scanner) {
 		super();
 		this.scanner = scanner;
-	}*/
+	}
 
 	public String getString() {
-		return scanner.next();
+		return scanner.nextLine();
 	}
 
 	public double nextDouble() {

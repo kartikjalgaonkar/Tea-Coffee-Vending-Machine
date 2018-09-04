@@ -285,7 +285,7 @@ public class TCVMControllerTest {
 		tcvmController.callOption();
 		
 		verify(inputScanner).getString();
-		verify(inputScanner, times(2)).nextInt();
+		verify(inputScanner, times(3)).nextInt();
 		verify(inputScanner).nextDouble();
 	}
 	
@@ -310,6 +310,7 @@ public class TCVMControllerTest {
 		verify(containerServiceImpl).refillContainer(ContainerType.Water, 100.0);
 		
 	}
+
 	
 	
 	

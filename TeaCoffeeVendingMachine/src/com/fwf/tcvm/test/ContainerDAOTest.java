@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.fwf.tcvm.controller.TeaCoffeeVendingMachineLauncher;
 import com.fwf.tcvm.dao.ContainerDAO;
 
 public class ContainerDAOTest {

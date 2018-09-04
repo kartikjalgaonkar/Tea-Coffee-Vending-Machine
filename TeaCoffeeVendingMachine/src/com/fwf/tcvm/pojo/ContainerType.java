@@ -26,14 +26,15 @@ public enum ContainerType {
 	     
 	     public static ContainerType getById(int id){
 	    	 
+	    	 ContainerType result = null;
 	    	 ContainerType[] values = ContainerType.values();
 	    	 
 	    	 for (ContainerType containerType : values) {
 				if(id==containerType.getId())
-					return containerType;
+					result = containerType;
 			 }
 	    	 
-	    	 return null;
+	    	 return result;
 	     }
 
 }
